@@ -1,0 +1,50 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+
+<h2 class="mb-4">
+    💸 Site Giderleri
+</h2>
+
+<table class="table table-striped table-bordered">
+
+    <thead class="table-dark">
+        <tr>
+            <th>Tarih</th>
+            <th>Açıklama</th>
+            <th>Tutar</th>
+            <th>Ödeme Tipi</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+    {% for gider in giderler %}
+
+        <tr>
+
+            <td>
+                {{ gider.tarih }}
+            </td>
+
+            <td>
+                {{ gider.aciklama }}
+            </td>
+
+            <td class="text-end fw-bold">
+    {{ gider.tutar_fmt }} ₺
+	    </td>
+
+            <td>
+                {{ gider.get_odeme_tipi_display }}
+            </td>
+
+        </tr>
+
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock %}

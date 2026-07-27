@@ -1,0 +1,97 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+
+<h1 class="mb-4">
+    🏢 Dashboard
+</h1>
+
+<div class="row g-3">
+
+    <div class="col-md-3">
+        <div class="card bg-success text-white shadow-lg border-0 h-100">
+            <div class="card-body text-center">
+                <h6>Toplam Malik</h6>
+                <h2>{{ toplam_malik }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card bg-success text-white shadow-lg border-0 h-100">
+            <div class="card-body text-center">
+
+                <h5 class="fw-bold">
+                    💰 GELİR
+                </h5>
+
+                <small style="font-size:11px;">
+                    Malik Ödemeleri + Devlet Hakedişleri
+                </small>
+
+                <h2 class="fw-bold mt-2">
+                    {{ toplam_gelir_fmt }} ₺
+                </h2>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card bg-danger text-white shadow-lg border-0 h-100">
+            <div class="card-body text-center">
+                <h5 class="fw-bold">📉 Toplam Gider</h5>
+                <h3>{{ toplam_gider_fmt }} ₺</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card border-info shadow-lg h-100">
+            <div class="card-body text-center">
+
+                <h6 class="text-muted">
+                    🏗️ Devlet Hakedişi
+                </h6>
+
+                <h3 class="fw-bold text-info">
+                    {{ toplam_hakedis_fmt }} ₺
+                </h3>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row g-3 mt-3">
+
+    <div class="col-md-4">
+        <div class="card border-success border-3 shadow-lg">
+            <div class="card-body text-center">
+                <h5>🏦 GENEL KASA</h5>
+                <h3 class="text-success">
+                    {{ aidat_kasasi_fmt }} ₺
+                </h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card border-primary border-3 shadow-lg">
+            <div class="card-body text-center">
+                <h5>🔵 Fon Kasası</h5>
+                <h3 class="text-primary">
+                    {{ fon_kasasi_fmt }} ₺
+                </h3>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </div>
+</div>
+
+</div>
+
+{% endblock %}

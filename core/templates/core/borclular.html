@@ -1,0 +1,61 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+
+<h1 class="mb-4">
+    🚨 Borçlu Malikler
+</h1>
+
+<table class="table table-bordered">
+
+    <thead class="table-danger">
+
+    <tr>
+    <th>Daire</th>
+    <th>Malik</th>
+    <th>Toplam Borç</th>
+</tr>
+
+    </thead>
+
+    <tbody>
+
+    {% for malik in borclular %}
+
+        <tr>
+
+            <td>
+    {{ malik.daire }}
+</td>
+
+<td>
+    {{ malik.ad }}
+</td>
+
+<td>
+    <span class="badge bg-danger">
+        {{ malik.borc }}
+    </span>
+</td>
+
+        </tr>
+
+    {% empty %}
+
+        <tr>
+
+            <td colspan="2">
+
+                Borçlu malik bulunmuyor.
+
+            </td>
+
+        </tr>
+
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock %}

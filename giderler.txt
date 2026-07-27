@@ -1,0 +1,42 @@
+Okunuyor: GÝDERLER TEMMUZ 2026
+ACIKLAMA BOS: ['SÝTE GÝDERLERÝ VE SATIN ALIMLAR', nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan]
+ACIKLAMA BOS: [nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan]
+Okunuyor: GÝDERLER HAZÝRAN 2026
+ACIKLAMA BOS: ['SÝTE GÝDERLERÝ VE SATIN ALIMLAR', nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan]
+ACIKLAMA BOS: [nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan]
+ACIKLAMA BOS: [nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, 'TOPLAM NAKÝT GÝDER', 'TOPLAM ÇEK-KART GÝDER', 'ÇELÝK ÝNÞAATA VERÝLEN TOPLAM TUTAR']
+ACIKLAMA BOS: [nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, 1663179.09, 0, 33504000]
+Okunuyor: GÝDERLER MAYIS 2026
+ACIKLAMA BOS: ['SÝTE GÝDERLERÝ VE SATIN ALIMLAR', nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan]
+ACIKLAMA BOS: [nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan]
+Okunuyor: GÝDERLER NÝSAN 2026
+ACIKLAMA BOS: ['SÝTE GÝDERLERÝ VE SATIN ALIMLAR', nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan]
+ACIKLAMA BOS: [nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan]
+Okunuyor: GÝDERLER MART 2026
+ACIKLAMA BOS: ['SÝTE GÝDERLERÝ VE SATIN ALIMLAR', nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan]
+ACIKLAMA BOS: [nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan]
+ACIKLAMA BOS: [nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan]
+Okunuyor: GÝDERLER ÞUBAT 2026
+ACIKLAMA BOS: ['SÝTE GÝDERLERÝ VE SATIN ALIMLAR', nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan]
+ACIKLAMA BOS: [nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan]
+Okunuyor: GÝDERLER OCAK 2026
+ACIKLAMA BOS: ['SÝTE GÝDERLERÝ VE SATIN ALIMLAR', nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan]
+ACIKLAMA BOS: [nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan]
+ACIKLAMA BOS: [nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan]
+ACIKLAMA BOS: [nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan]
+ACIKLAMA BOS: [nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan]
+ACIKLAMA BOS: [nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan]
+ACIKLAMA BOS: [nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, 'TOPLAM NAKÝT GÝDER', 'TOPLAM ÇEK-KART GÝDER', 'ÇELÝK ÝNÞAATA VERÝLEN TOPLAM TUTAR']
+ACIKLAMA BOS: [nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, 3939775.4699999997, 1466684.6, 33504000]
+Okunuyor: GÝDER ARALIK 2025 VE ÖNCESÝ(2)
+ACIKLAMA BOS: ['SÝTE GÝDERLERÝ VE SATIN ALIMLAR', nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan]
+ACIKLAMA BOS: [nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan]
+ACIKLAMA BOS: [nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan]
+ACIKLAMA BOS: [nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan]
+ACIKLAMA BOS: [nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan]
+ACIKLAMA BOS: [nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan]
+ACIKLAMA BOS: [nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan]
+ACIKLAMA BOS: [nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan]
+ACIKLAMA BOS: [nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, 'TOPLAM NAKÝT GÝDER', 'TOPLAM ÇEK-KART GÝDER', 'ÇELÝK ÝNÞAATA VERÝLEN TOPLAM TUTAR']
+ACIKLAMA BOS: [nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, nan, 2593031.8, 400000, 33504000]
+0 gider aktarýldý.
