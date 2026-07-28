@@ -197,7 +197,6 @@ def dashboard(request):
         context,
     )
 
-@staff_member_required
 def dashboard2(request):
 
     nakit_gelir = sum(
@@ -550,9 +549,6 @@ def excel_export(request):
 
     return response
 
-from django.contrib.admin.views.decorators import staff_member_required
-
-@staff_member_required
 def fon_giderleri(request):
 
     giderler = FonHareketi.objects.filter(
