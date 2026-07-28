@@ -1,0 +1,73 @@
+{% extends "core/base_finans.html" %}
+
+{% block content %}
+
+<h2 class="mb-4">
+    🔵 Fon Giderleri
+</h2>
+
+<div class="card shadow">
+
+    <div class="card-body">
+
+        <table class="table table-striped">
+
+            <thead>
+
+                <tr>
+                    <th>Tarih</th>
+                    <th>Açıklama</th>
+                    <th class="text-end">Tutar</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for gider in giderler %}
+
+                <tr>
+
+                    <td>
+                        {{ gider.tarih|date:"d.m.Y" }}
+                    </td>
+
+                    <td>
+                        {{ gider.aciklama }}
+                    </td>
+
+                    <td class="text-end">
+                        {{ gider.tutar }} ₺
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<div class="card mt-3 border-danger">
+
+    <div class="card-body text-center">
+
+        <h4>
+            Toplam Fon Gideri
+        </h4>
+
+        <h2 class="text-danger">
+
+            {{ toplam }} ₺
+
+        </h2>
+
+    </div>
+
+</div>
+
+{% endblock %}

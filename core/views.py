@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import pandas as pd
 from django.http import HttpResponse
-
+from django.contrib.admin.views.decorators import staff_member_required
 
 from .models import (
     Malik,
@@ -197,6 +197,105 @@ def dashboard(request):
         context,
     )
 
+@staff_member_required
+def dashboard2(request):
+
+    nakit_gelir = sum(
+        x.tutar
+        for x in MalikOdemesi.objects.filter(
+            odeme_tipi="N"
+        )
+    )
+
+    hakedis = sum(
+        x.tutar
+        for x in DevletHakedisi.objects.all()
+    )
+
+    nakit_gider = sum(
+        x.tutar
+        for x in Gider.objects.filter(
+            odeme_tipi="N"
+        )
+    )
+
+    nakit_kasa = (
+        nakit_gelir
+        + hakedis
+        - nakit_gider
+    )
+
+    kart_gelir = sum(
+        x.tutar
+        for x in MalikOdemesi.objects.filter(
+            odeme_tipi="D"
+        )
+    )
+
+    kart_gider = sum(
+        x.tutar
+        for x in Gider.objects.filter(
+            odeme_tipi="D"
+        )
+    )
+
+    kart_kasa = (
+        kart_gelir
+        - kart_gider
+    )
+
+    fon_gelir = sum(
+        x.tutar
+        for x in FonHareketi.objects.filter(
+            hareket_tipi="GELIR"
+        )
+    )
+
+    fon_gider = sum(
+        x.tutar
+        for x in FonHareketi.objects.filter(
+            hareket_tipi="GIDER"
+        )
+    )
+
+    fon_bakiye = (
+        fon_gelir
+        - fon_gider
+    )
+
+    toplam_isletme = (
+        nakit_kasa
+        + kart_kasa
+    )
+
+    def fmt(x):
+        return (
+            f"{x:,.0f}"
+            .replace(",", ".")
+        )
+
+    context = {
+        "nakit_gelir": fmt(nakit_gelir),
+        "hakedis": fmt(hakedis),
+        "nakit_gider": fmt(nakit_gider),
+        "nakit_kasa": fmt(nakit_kasa),
+
+        "kart_gelir": fmt(kart_gelir),
+        "kart_gider": fmt(kart_gider),
+        "kart_kasa": fmt(kart_kasa),
+
+        "fon_gelir": fmt(fon_gelir),
+        "fon_gider": fmt(fon_gider),
+        "fon_bakiye": fmt(fon_bakiye),
+
+        "toplam_isletme": fmt(toplam_isletme),
+    }
+
+    return render(
+        request,
+        "core/dashboard2.html",
+        context,
+    )
 
 def aidat_durumu(request):
 
@@ -450,3 +549,28 @@ def excel_export(request):
         )
 
     return response
+
+from django.contrib.admin.views.decorators import staff_member_required
+
+@staff_member_required
+def fon_giderleri(request):
+
+    giderler = FonHareketi.objects.filter(
+        hareket_tipi="GIDER"
+    ).order_by("-tarih")
+
+    toplam = sum(
+        x.tutar
+        for x in giderler
+    )
+
+    context = {
+        "giderler": giderler,
+        "toplam": toplam,
+    }
+
+    return render(
+        request,
+        "core/fon_giderleri.html",
+        context
+    )

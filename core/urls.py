@@ -4,9 +4,11 @@ from core.views import excel_export
 
 from .views import (
     dashboard,
+    dashboard2,
     aidat_durumu,
     excel_import,
     borclular,
+    fon_giderleri,
 )
 
 
@@ -17,5 +19,6 @@ urlpatterns = [
     path("borclular/", borclular, name="borclular"),
     path("giderler/", giderler, name="giderler"),
     path("excel-export/", excel_export, name="excel_export"),
-
+    path("nirvana-finans-2026/", dashboard2, name="dashboard2"),
+    path("fon-giderleri/", fon_giderleri, name="fon_giderleri"),
 ]
