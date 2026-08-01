@@ -4,6 +4,7 @@ import pandas as pd
 from django.http import HttpResponse
 from django.contrib.admin.views.decorators import staff_member_required
 
+
 from .models import (
     Malik,
     AidatDonemi,
@@ -12,6 +13,7 @@ from .models import (
     MalikAidat,
     FonHareketi,
     DevletHakedisi,
+    Borc,
 )
 
 
@@ -99,7 +101,14 @@ def dashboard(request):
     + toplam_hakedis
     - toplam_gider
 )
-
+    toplam_dis_borc = sum(
+    x.tutar
+    for x in Borc.objects.all()
+)
+    toplam_dis_borc_fmt = (
+    f"{toplam_dis_borc:,.0f}"
+    .replace(",", ".")
+)
     fon_kasasi = fon_geliri - fon_gideri
 
     genel_kasa = aidat_kasasi + fon_kasasi
@@ -189,6 +198,8 @@ def dashboard(request):
         "toplam_hakedis_fmt": toplam_hakedis_fmt,
         "toplam_gelir": toplam_gelir,
         "toplam_gelir_fmt": toplam_gelir_fmt,
+        "toplam_dis_borc": toplam_dis_borc,
+        "toplam_dis_borc_fmt": toplam_dis_borc_fmt,
     }
 
     return render(
@@ -272,6 +283,15 @@ def dashboard2(request):
             f"{x:,.0f}"
             .replace(",", ".")
         )
+    toplam_dis_borc = sum(
+    x.tutar
+    for x in Borc.objects.all()
+)
+
+    toplam_dis_borc_fmt = (
+    f"{toplam_dis_borc:,.0f}"
+    .replace(",", ".")
+)
 
     context = {
         "nakit_gelir": fmt(nakit_gelir),
@@ -288,6 +308,8 @@ def dashboard2(request):
         "fon_bakiye": fmt(fon_bakiye),
 
         "toplam_isletme": fmt(toplam_isletme),
+        "toplam_dis_borc": toplam_dis_borc,
+        "toplam_dis_borc_fmt": toplam_dis_borc_fmt,
     }
 
     return render(
@@ -570,3 +592,22 @@ def fon_giderleri(request):
         "core/fon_giderleri.html",
         context
     )
+from .models import Borc
+
+def borclar(request):
+    borclar = Borc.objects.all().order_by("borclu_adi")
+
+    for borc in borclar:
+        borc.tutar_fmt = (
+            f"{borc.tutar:,.0f}"
+            .replace(",", ".")
+        )
+
+    return render(
+        request,
+        "core/borclar.html",
+        {
+            "borclar": borclar
+        }
+    )
+    

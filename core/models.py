@@ -277,3 +277,20 @@ class DevletHakedisi(models.Model):
             f"{self.tarih} - "
             f"{self.tutar}"
         )
+class Borc(models.Model):
+
+    borclu_adi = models.CharField(
+        max_length=200
+    )
+
+    tutar = models.DecimalField(
+        max_digits=12,
+        decimal_places=2
+    )
+
+    def __str__(self):
+        return f"{self.borclu_adi} - {self.tutar:,.2f} TL"
+
+    class Meta:
+        verbose_name = "Borç"
+        verbose_name_plural = "Borçlar"

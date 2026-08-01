@@ -8,7 +8,7 @@ from .models import (
     MalikAidat,
     FonHareketi,
     DevletHakedisi,
- 
+    Borc,
 )
 
 
@@ -93,3 +93,4 @@ class GiderAdmin(admin.ModelAdmin):
 admin.site.register(MalikAidat)
 admin.site.register(FonHareketi)
 admin.site.register(DevletHakedisi)
+admin.site.register(Borc)

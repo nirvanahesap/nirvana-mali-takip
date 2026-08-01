@@ -9,6 +9,7 @@ from .views import (
     excel_import,
     borclular,
     fon_giderleri,
+    borclar,
 )
 
 
@@ -21,4 +22,5 @@ urlpatterns = [
     path("excel-export/", excel_export, name="excel_export"),
     path("nirvana-finans-2026/", dashboard2, name="dashboard2"),
     path("fon-giderleri/", fon_giderleri, name="fon_giderleri"),
+    path("borclar/", borclar, name="borclar"),
 ]
