@@ -6,7 +6,8 @@ class Malik(models.Model):
     DURUM_SECENEKLERI = [
         ("TAMAM", "Tamam"),
         ("EKSIK", "Eksik"),
-        ("MUAF", "Muaf"),
+        ("MUAF", "Hazine"),
+        
     ]
 
     daire_no = models.CharField(
@@ -74,6 +75,7 @@ class MalikOdemesi(models.Model):
     ODEME_TIPLERI = [
         ("N", "Nakit"),
         ("D", "Çek/Kart"),
+        ("C", "Çelik02"),
     ]
 
     malik = models.ForeignKey(
@@ -142,7 +144,10 @@ class Gider(models.Model):
     ODEME_TIPLERI = [
         ("N", "Nakit"),
         ("D", "Çek/Kart"),
+        
     ]
+
+    print("CELIK02 YUKLENDI")
 
     aciklama = models.CharField(
         max_length=500

@@ -32,9 +32,11 @@ def dashboard(request):
     ).count()
 
     toplam_tahsilat = sum(
-        odeme.tutar
-        for odeme in MalikOdemesi.objects.all()
+    odeme.tutar
+    for odeme in MalikOdemesi.objects.exclude(
+        odeme_tipi="C"
     )
+)
 
     nakit_gelir = sum(
         odeme.tutar
@@ -362,7 +364,20 @@ def aidat_durumu(request):
                 )
             )
 
-            if hedef_tutar == 0:
+            celik02_odeme_var = malik.odemeler.filter(
+                aidat=donem,
+                odeme_tipi="C"
+            ).exists()
+
+            if celik02_odeme_var:
+
+                durum = "CELIK02"
+
+            elif malik.temmuz_oncesi_durum == "MUAF":
+
+                durum = "HAZINE"
+
+            elif hedef_tutar == 0:
 
                 durum = "⚪"
 
@@ -389,7 +404,6 @@ def aidat_durumu(request):
     context = {
         "donemler": donemler,
         "tablo": tablo,
-        
     }
 
     return render(

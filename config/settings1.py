@@ -25,12 +25,7 @@ SECRET_KEY = 'django-insecure-=w(7hkk7etuskpyojk(mry_zba*hp5kb8w71jqbd(40^4bcg#%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    "nirvanahesap.pythonanywhere.com",
-    "127.0.0.1",
-    "localhost",
-]
-
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -42,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    
     'core',
 ]
 
@@ -109,18 +104,13 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
-LANGUAGE_CODE = 'TR'
+LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = "Europe/Istanbul"
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
 USE_TZ = True
-from django.utils.translation import gettext_lazy as _
-
-LANGUAGES = [
-    ("tr", _("Turkish")),
-]
 
 
 # Static files (CSS, JavaScript, Images)

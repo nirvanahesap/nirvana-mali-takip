@@ -114,17 +114,35 @@
 
                         </div>
 
-                        {% else %}
+                      {% elif durum.durum == "HAZINE" %}
 
-                        <div class="p-2 rounded shadow-sm bg-secondary text-white">
+<div class="p-2 rounded shadow-sm bg-secondary text-white">
+    <div class="fw-bold">
+        HAZİNE
+    </div>
+</div>
 
-                            <div class="fw-bold">
-                                MUAF
-                            </div>
+{% elif durum.durum == "CELIK02" %}
 
-                        </div>
+<div class="p-2 rounded shadow-sm bg-info text-white">
 
-                        {% endif %}
+    <div class="fw-bold">
+        ÇELİK02
+    </div>
+
+    <small>&nbsp;</small>
+
+</div>
+
+{% else %}
+
+<div class="p-2 rounded shadow-sm bg-secondary text-white">
+    <div class="fw-bold">
+        MUAF
+    </div>
+</div>
+
+{% endif %}
 
                     </td>
 
