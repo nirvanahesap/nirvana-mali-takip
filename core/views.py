@@ -82,7 +82,7 @@ def dashboard(request):
 )
 
     toplam_hakedis_fmt = (
-    f"{toplam_hakedis:,.2f}"
+    f"{toplam_hakedis:,.0f}"
     .replace(",", "X")
     .replace(".", ",")
     .replace("X", ".")
@@ -92,7 +92,7 @@ def dashboard(request):
     + toplam_hakedis
 )
     toplam_gelir_fmt = (
-    f"{toplam_gelir:,.2f}"
+    f"{toplam_gelir:,.0f}"
     .replace(",", "X")
     .replace(".", ",")
     .replace("X", ".")
@@ -154,6 +154,75 @@ def dashboard(request):
 
         if toplam_borc > 0:
             borclu_sayisi += 1
+        aidat_malikler = sorted(
+        Malik.objects.all(),
+        key=lambda x: (
+            x.daire_no[0],
+            int(x.daire_no[1:])
+        )
+    )
+
+    aidat_donemler = AidatDonemi.objects.all()
+
+    aidat_tablo = []
+
+    for malik in aidat_malikler:
+
+        satir = {
+            "daire": malik.daire_no,
+            "malik": malik.ad_soyad,
+            "durumlar": []
+        }
+
+        for donem in aidat_donemler:
+
+            try:
+                ozel_aidat = MalikAidat.objects.get(
+                    malik=malik,
+                    donem=donem
+                )
+                hedef_tutar = ozel_aidat.tutar
+
+            except MalikAidat.DoesNotExist:
+                hedef_tutar = donem.tutar
+
+            toplam_odeme = sum(
+                odeme.tutar
+                for odeme in malik.odemeler.filter(
+                    aidat=donem
+                )
+            )
+
+            celik02_odeme_var = malik.odemeler.filter(
+                aidat=donem,
+                odeme_tipi="C"
+            ).exists()
+
+            if celik02_odeme_var:
+                durum = "CELIK02"
+
+            elif malik.temmuz_oncesi_durum == "MUAF":
+                durum = "HAZINE"
+
+            elif hedef_tutar == 0:
+                durum = "⚪"
+
+            elif toplam_odeme >= hedef_tutar:
+                durum = "🟢"
+
+            elif toplam_odeme > 0:
+                durum = "🟠"
+
+            else:
+                durum = "🔴"
+
+            satir["durumlar"].append({
+                "durum": durum,
+                "odenen": f"{toplam_odeme:,.0f}".replace(",", "."),
+                "aidat": f"{hedef_tutar:,.0f}".replace(",", "."),
+            })
+
+        aidat_tablo.append(satir)
 
     son_odemeler = MalikOdemesi.objects.order_by(
         "-created_at"
@@ -393,17 +462,21 @@ def aidat_durumu(request):
 
                 durum = "🔴"
 
+            kalan = max(0, hedef_tutar - toplam_odeme)
+
             satir["durumlar"].append({
-                "durum": durum,
-                "odenen": f"{toplam_odeme:,.0f}".replace(",", "."),
-                "aidat": f"{hedef_tutar:,.0f}".replace(",", "."),
-            })
+            "durum": durum,
+            "odenen": f"{toplam_odeme:,.0f}".replace(",", "."),
+            "aidat": f"{hedef_tutar:,.0f}".replace(",", "."),
+            "kalan": f"{kalan:,.0f}".replace(",", "."),
+})
 
         tablo.append(satir)
 
     context = {
         "donemler": donemler,
         "tablo": tablo,
+       
     }
 
     return render(

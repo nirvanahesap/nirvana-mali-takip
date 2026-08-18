@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="tr">
 <style>
+
+    .navbar-nav{
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    }
+
     .navbar-nav .nav-link{
         margin-right:8px;
         margin-top:4px;
@@ -36,7 +42,7 @@
             🏢 Nirvana Mali Takip
         </a>
 
-        <div class="navbar-nav">
+        <div class="navbar-nav flex-wrap">
 
             <a class="nav-link text-white" href="/">
                 Ana Sayfa
@@ -64,7 +70,7 @@
 
 </nav>
 
-<div class="container mt-4">
+<div class="{% block page_class %}container{% endblock %} mt-4">
 
     {% block content %}
     {% endblock %}
