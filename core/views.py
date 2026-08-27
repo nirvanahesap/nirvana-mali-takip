@@ -117,9 +117,9 @@ def dashboard(request):
 
     borclu_sayisi = 0
 
-    malikler = Malik.objects.filter(
-        muaf_mi=False
-    )
+    malikler = Malik.objects.exclude(
+    temmuz_oncesi_durum="MUAF"
+)
 
     for malik in malikler:
 

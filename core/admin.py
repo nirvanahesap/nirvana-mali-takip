@@ -58,6 +58,7 @@ class MalikOdemesiAdmin(admin.ModelAdmin):
         "tarih",
         "tutar",
         "odeme_tipi",
+        "aciklama",
     )
 
     list_filter = (
