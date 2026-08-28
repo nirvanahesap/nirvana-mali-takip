@@ -147,7 +147,7 @@ class Gider(models.Model):
         
     ]
 
-    print("CELIK02 YUKLENDI")
+   
 
     aciklama = models.CharField(
         max_length=500

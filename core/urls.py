@@ -10,6 +10,7 @@ from .views import (
     borclular,
     fon_giderleri,
     borclar,
+    giderler2,
 )
 
 
@@ -23,4 +24,5 @@ urlpatterns = [
     path("nirvana-finans-2026/", dashboard2, name="dashboard2"),
     path("fon-giderleri/", fon_giderleri, name="fon_giderleri"),
     path("borclar/", borclar, name="borclar"),
+    path("giderler2", giderler2, name="giderler2"),
 ]

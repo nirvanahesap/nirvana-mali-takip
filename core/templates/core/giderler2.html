@@ -13,6 +13,7 @@
             <th>Tarih</th>
             <th>Açıklama</th>
             <th>Tutar</th>
+            <th>Ödeme Tipi</th>
         </tr>
     </thead>
 
@@ -34,7 +35,11 @@
     {{ gider.tutar_fmt }} ₺
 	    </td>
 
-          </tr>
+            <td>
+                {{ gider.get_odeme_tipi_display }}
+            </td>
+
+        </tr>
 
     {% endfor %}
 

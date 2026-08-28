@@ -581,6 +581,28 @@ def giderler(request):
             "giderler": giderler
         }
     )
+def giderler2(request):
+
+    giderler = Gider.objects.order_by(
+        "-tarih",
+        "-id"
+    )
+
+    for gider in giderler:
+        gider.tutar_fmt = (
+            f"{gider.tutar:,.2f}"
+            .replace(",", "X")
+            .replace(".", ",")
+            .replace("X", ".")
+        )
+
+    return render(
+        request,
+        "core/giderler2.html",
+        {
+            "giderler": giderler
+        }
+    )
 
 from django.contrib.admin.views.decorators import staff_member_required
 import pandas as pd
