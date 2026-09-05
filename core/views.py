@@ -686,14 +686,26 @@ def fon_giderleri(request):
         hareket_tipi="GIDER"
     ).order_by("-tarih")
 
+    for gider in giderler:
+        gider.tutar_fmt = (
+            f"{gider.tutar:,.0f}"
+            .replace(",", ".")
+        )
+
     toplam = sum(
         x.tutar
         for x in giderler
     )
 
+    toplam_fmt = (
+        f"{toplam:,.0f}"
+        .replace(",", ".")
+    )
+
     context = {
         "giderler": giderler,
         "toplam": toplam,
+        "toplam_fmt": toplam_fmt,
     }
 
     return render(

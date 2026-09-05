@@ -90,7 +90,6 @@ class GiderAdmin(admin.ModelAdmin):
         "aciklama",
     )
 
-
 admin.site.register(MalikAidat)
 admin.site.register(FonHareketi)
 admin.site.register(DevletHakedisi)
